@@ -19,6 +19,73 @@ YAM은 대학생들이 편리하게 학식을 예약하고 결제할 수 있도�
 ## 개발 환경
 - 백엔드 : Node.js
 - 프론트엔드 : React Native
+
+
+## 프로젝트 구조
+
+``` bach
+ZXIS_YAM/
+├── frontend/     # React Native 앱
+└── backend/      # Node.js + Express 서버
+```
+
+
+
+## 1. 프로젝트 클론
+
+```bash
+git clone https://github.com/your-username/ZXIS_YAM.git
+cd ZXIS_YAM
+```
+
+
+
+## 2. 프론트엔드 실행 (React Native)
+
+### 의존성 설치
+
+```bash
+cd frontend
+npm install
+```
+
+### ▶ 실행 (Android)
+
+```bash
+npx react-native run-android
+```
+
+##  3. 백엔드 실행 (Node.js + Express)
+
+### 의존성 설치
+
+```bash
+cd ../backend
+npm install
+```
+
+### ▶ 서버 실행
+
+```bash
+# 일반 실행
+node index.js
+
+# 개발 모드 (파일 변경 감지 자동 재시작)
+npx nodemon index.js
+```
+
+또는 \`package.json\`에 script가 정의되어 있다면:
+
+```bash
+npm run dev //보통 이걸로 하면 됨
+```
+
+
+## 4. API 테스트 예시
+
+- 기본 URL: \`http://localhost:3000\`
+- 예시 엔드포인트: \`http://localhost:3000/api/hello\`
+
 ---
 
 
