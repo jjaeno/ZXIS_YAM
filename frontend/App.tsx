@@ -1,37 +1,90 @@
 import React from 'react';
-import {SafeAreaView, View, Text, StyleSheet, StatusBar} from 'react-native';
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  StyleSheet,
+  StyleProp,
+  ViewStyle,
+  TextStyle,
+} from 'react-native';
 
-function App(): JSX.Element {
+const App: React.FC = () => {
   return (
-    <>
-      {/* 상태바 아이콘 색만 지정 */}
-      <StatusBar barStyle="light-content" />
+    <View style={styles.container}>
+      <Text style={styles.title}>YAM</Text>
 
-      {/* SafeArea 한 겹만 사용, flex:1 로 전체 채움 */}
-      <SafeAreaView style={styles.safe}>
-        <View style={styles.centerBox}>
-          <Text style={styles.text}>YAM 학식 예약 앱</Text>
-        </View>
-      </SafeAreaView>
-    </>
+      <TouchableOpacity style={[styles.button, styles.kakao]}>
+        <Text style={styles.buttonText}>카카오로 로그인</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity style={[styles.button, styles.naver]}>
+        <Text style={styles.buttonText}>네이버로 로그인</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity style={[styles.button, styles.google]}>
+        <Text style={styles.buttonText}>구글로 로그인</Text>
+      </TouchableOpacity>
+
+      <Text style={styles.signupText}>
+        아직 계정이 없으신가요? <Text style={styles.signupLink}>회원가입</Text>
+      </Text>
+    </View>
   );
-}
-
-const styles = StyleSheet.create({
-  safe: {
-    flex: 1,
-    backgroundColor: '#2196F3', // 파란 배경
-  },
-  centerBox: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  text: {
-    fontSize: 24,
-    color: '#fff',
-    fontWeight: 'bold',
-  },
-});
+};
 
 export default App;
+
+const styles = StyleSheet.create<{
+  container: StyleProp<ViewStyle>;
+  title: StyleProp<TextStyle>;
+  button: StyleProp<ViewStyle>;
+  kakao: StyleProp<ViewStyle>;
+  naver: StyleProp<ViewStyle>;
+  google: StyleProp<ViewStyle>;
+  buttonText: StyleProp<TextStyle>;
+  signupText: StyleProp<TextStyle>;
+  signupLink: StyleProp<TextStyle>;
+}>({
+  container: {
+    flex: 1,
+    backgroundColor: '#0047A0',
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingHorizontal: 20,
+  },
+  title: {
+    fontSize: 40,
+    color: 'white',
+    fontWeight: 'bold',
+    marginBottom: 60,
+  },
+  button: {
+    width: '80%',
+    paddingVertical: 14,
+    borderRadius: 10,
+    marginBottom: 15,
+    alignItems: 'center',
+  },
+  kakao: {
+    backgroundColor: '#FEE500',
+  },
+  naver: {
+    backgroundColor: '#03C75A',
+  },
+  google: {
+    backgroundColor: '#DADCE0',
+  },
+  buttonText: {
+    fontSize: 16,
+    fontWeight: 'bold',
+  },
+  signupText: {
+    marginTop: 30,
+    color: 'white',
+    fontSize: 13,
+  },
+  signupLink: {
+    textDecorationLine: 'underline',
+  },
+});
